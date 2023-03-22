@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,17 +14,21 @@
         android:src="@drawable/icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btn_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ttttttttttttttttttttttt"
+        android:maxHeight="40dp"
+        android:paddingHorizontal="40dp"
+        android:textSize="14sp"
+        android:text="Кнопка с текстом Id"
         app:layout_constraintBottom_toBottomOf="@+id/img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/text_layout"
@@ -63,21 +68,74 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Switch
-        android:id="@+id/switch_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/text_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/switch_text"/>
 
-    <TextView
-        android:id="@+id/switch_text"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/switch_layout"
+        android:layout_marginTop="12dp"
+        android:layout_marginHorizontal="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_layout">
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_color"
+            android:layout_marginHorizontal="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/switch_text"/>
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/switch_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="250dp"
+            android:layout_marginVertical="4dp"
+            android:layout_marginEnd="24dp"
+            android:textSize="16sp"
+            android:text="Меняет цвет фона карточки выше при переключении"
+            android:textColor="#1C1B1F"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/switch_color"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Меняет цвет фона карточки выше при переключении"
-        app:layout_constraintTop_toBottomOf="@+id/text_layout"
-        app:layout_constraintStart_toEndOf="@+id/switch_color"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:maxHeight="40dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="21dp"
+        android:textSize="14sp"
+        android:text="Поделиться"
+        style="@style/Widget.Material3.Button.Icon"
+        app:icon="@drawable/icon_add_18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/switch_layout" />
+
+    <Button
+        android:id="@+id/like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxHeight="40dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="21dp"
+        android:textSize="14sp"
+        android:text="Лайк"
+        style="@style/Widget.Material3.Button.Icon"
+        app:icon="@drawable/icon_add_18dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_share"
+        app:layout_constraintTop_toBottomOf="@id/switch_layout"
+        tools:ignore="RtlSymmetry" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
