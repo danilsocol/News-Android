@@ -21,17 +21,20 @@ class MainActivity : AppCompatActivity() {
 
        val list  = listOf(
             NewsModel(
-                R.drawable.avatar, "Header", "Title",
-                "Subhead", "description", "text", R.drawable.icon
-            ),
+                0,R.drawable.avatar, "Header", "Title",
+                "Subhead", "description", "text", R.drawable.icon),
+           NewsModel(
+               1,R.drawable.avatar, "Header", "Title",
+               "Subhead", "description", "text", R.drawable.icon),
             NewsModel(
-                R.drawable.avatar, "Header", "Title",
-                "Subhead", "description", "text", R.drawable.icon
-            ),
+                0,R.drawable.avatar, "Header", "Title",
+                "Subhead", "description", "text", R.drawable.icon),
             NewsModel(
-                R.drawable.avatar, "Header", "Title",
-                "Subhead", "description", "text", R.drawable.icon
-            )
+                0,R.drawable.avatar, "Header", "Title",
+                "Subhead", "description", "text", R.drawable.icon),
+           NewsModel(
+                    1,R.drawable.avatar, "Header", "Title",
+           "Subhead", "description", "text", R.drawable.icon)
         )
         newsAdapter.submitList(list)
 
