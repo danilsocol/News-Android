@@ -11,16 +11,19 @@ import com.example.androidlaba1.databinding.FragmentNewsListBinding
 
 class NewsListFragment : Fragment(), NewsAdapter.Listener {
 
-    private lateinit var binding: FragmentNewsListBinding
+    private var _binding: FragmentNewsListBinding? = null
     private val newsAdapter = NewsAdapter(this)
 
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View?
     {
+        _binding = FragmentNewsListBinding.inflate(inflater, container, false)
+
         init()
-        return inflater.inflate(R.layout.fragment_news_list,container,false)
+        return binding.root
     }
 
     private fun init(){

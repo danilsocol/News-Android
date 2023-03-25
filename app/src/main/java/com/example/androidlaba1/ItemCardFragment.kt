@@ -9,7 +9,9 @@ import com.example.androidlaba1.databinding.FragmentItemCardBinding
 
 class ItemCardFragment : Fragment() {
 
-    private lateinit var binding: FragmentItemCardBinding
+    private var _binding: FragmentItemCardBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
