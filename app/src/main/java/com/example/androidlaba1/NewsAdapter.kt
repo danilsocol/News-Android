@@ -9,7 +9,7 @@ import com.example.androidlaba1.databinding.ItemList1Binding
 import com.example.androidlaba1.databinding.ItemList2Binding
 
 
-class NewsAdapter() : ListAdapter<NewsModel, RecyclerView.ViewHolder>(MyDiffCallback()) {
+class NewsAdapter(val listener: Listener) : ListAdapter<NewsModel, RecyclerView.ViewHolder>(MyDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         return when (viewType) {
@@ -35,33 +35,42 @@ class NewsAdapter() : ListAdapter<NewsModel, RecyclerView.ViewHolder>(MyDiffCall
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
-            0 -> (holder as NewsHolder1).bind(getItem(position))
-            else -> (holder as NewsHolder2).bind(getItem(position))
+            0 -> (holder as NewsHolder1).bind(getItem(position), listener)
+            else -> (holder as NewsHolder2).bind(getItem(position), listener)
 
         }
     }
 
 
     class NewsHolder1(private val binding: ItemList1Binding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: NewsModel) = with(binding) {
-            header.text = item.header
-            subHeader.text = item.subhead
-            subHeader2.text = item.subhead
-            title.text = item.title
-            image.setImageResource(item.iconId)
-            avatar.setImageResource(item.userAvatarId)
-            description.text = item.description
+        fun bind(news: NewsModel, listener: Listener) = with(binding) {
+            header.text = news.header
+            subHeader.text = news.subhead
+            subHeader2.text = news.subhead
+            title.text = news.title
+            image.setImageResource(news.iconId)
+            avatar.setImageResource(news.userAvatarId)
+            description.text = news.description
+
+            itemView.setOnClickListener{
+                listener.onClick(news)
+            }
         }
     }
 
     class NewsHolder2(private val binding: ItemList2Binding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: NewsModel) = with(binding) {
-            header.text = item.header
-            subHeader.text = item.subhead
-            avatar.setImageResource(item.userAvatarId)
-            image.setImageResource(item.iconId)
+        fun bind(news: NewsModel, listener: Listener) = with(binding) {
+            header.text = news.header
+            subHeader.text = news.subhead
+            avatar.setImageResource(news.userAvatarId)
+            image.setImageResource(news.icon80dpId)
+
+            itemView.setOnClickListener{
+                listener.onClick(news)
+            }
         }
     }
+
 
     class MyDiffCallback : DiffUtil.ItemCallback<NewsModel>() {
 
@@ -72,6 +81,10 @@ class NewsAdapter() : ListAdapter<NewsModel, RecyclerView.ViewHolder>(MyDiffCall
         override fun areContentsTheSame(oldItem: NewsModel, newItem: NewsModel): Boolean {
             return oldItem == newItem
         }
+    }
+
+    interface Listener{
+        fun onClick(news: NewsModel)
     }
 }
 

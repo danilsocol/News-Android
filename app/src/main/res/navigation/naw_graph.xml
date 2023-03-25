@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/naw_graph"
+    app:startDestination="@id/itemCardFragment">
+
+    <fragment
+        android:id="@+id/itemCardFragment"
+        android:name="com.example.androidlaba1.ItemCardFragment"
+        android:label="fragment_item_card"
+        tools:layout="@layout/fragment_item_card">
+        <argument app:argType="Int" android:name="id"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.example.androidlaba1.NewsListFragment"
+        android:label="fragment_news_list"
+        tools:layout="@layout/fragment_news_list">
+
+        <action
+            android:id="@+id/toItemCard"
+            app:destination="@+id/itemCardFragment">
+            <argument app:argType="Int" android:name="id"/>
+        </action>
+
+    </fragment>
+
+</navigation>

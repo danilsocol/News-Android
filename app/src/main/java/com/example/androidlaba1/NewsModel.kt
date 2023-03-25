@@ -8,5 +8,6 @@ data class NewsModel (
     val subhead: String,
     val description : String,
     val text: String,
-    val iconId : Int){
+    val iconId : Int,
+    val icon80dpId: Int){
 }
