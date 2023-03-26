@@ -2,4 +2,16 @@
     <string name="app_name">AndroidLaba1</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_id_text">Кнопка с текстом Id</string>
+    <string name="subhead_text">Это заголовок</string>
+    <string name="textCard">А это текст полный смысла и очень большой, наверное тут должно быть описание сказочного персонажа или ещё кого-то, вообщем смысл простой - длинный текст, а ещё он не доходит до конца экрана, это фича =)</string>
+    <string name="switch_text">Меняет цвет фона карточки выше при переключении</string>
+    <string name="btn_share">Поделиться</string>
+    <string name="Like">Лайк</string>
+    <string name="subhead">Subheader</string>
+    <string name="title">Title</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>
+    <string name="enabled">Enabled</string>
+    <string name="header">Header</string>
+    <string name="todo">TODO</string>
 </resources>

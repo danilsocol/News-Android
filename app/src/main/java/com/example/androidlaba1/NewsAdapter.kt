@@ -35,15 +35,15 @@ class NewsAdapter(val listener: Listener) : ListAdapter<NewsModel, RecyclerView.
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
-            0 -> (holder as NewsHolder1).bind(getItem(position), listener)
-            else -> (holder as NewsHolder2).bind(getItem(position), listener)
+            0 -> (holder as NewsHolder1).bind(getItem(position) as NewsModel.ExpandNewsModel, listener)
+            else -> (holder as NewsHolder2).bind(getItem(position) as NewsModel.CollapseNewsModel, listener)
 
         }
     }
 
 
     class NewsHolder1(private val binding: ItemList1Binding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(news: NewsModel, listener: Listener) = with(binding) {
+        fun bind(news: NewsModel.ExpandNewsModel, listener: Listener) = with(binding) {
             header.text = news.header
             subHeader.text = news.subhead
             subHeader2.text = news.subhead
@@ -59,7 +59,7 @@ class NewsAdapter(val listener: Listener) : ListAdapter<NewsModel, RecyclerView.
     }
 
     class NewsHolder2(private val binding: ItemList2Binding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(news: NewsModel, listener: Listener) = with(binding) {
+        fun bind(news: NewsModel.CollapseNewsModel, listener: Listener) = with(binding) {
             header.text = news.header
             subHeader.text = news.subhead
             avatar.setImageResource(news.userAvatarId)

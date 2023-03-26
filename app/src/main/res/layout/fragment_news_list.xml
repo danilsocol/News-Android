@@ -7,26 +7,38 @@
     tools:context=".NewsListFragment">
 
 
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:navigationIcon="@drawable/menu"
-        app:title="Title"
-        app:titleCentered="true"
-        android:background="@drawable/gradient_toolbar"
-        app:menu="@menu/menu"
-        android:paddingEnd="4dp"
-        android:paddingStart="4dp"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:navigationIcon="@drawable/menu"
+            app:title="Title"
+            app:titleCentered="true"
+            android:background="@drawable/gradient_toolbar"
+            app:menu="@menu/menu"
+            android:paddingEnd="4dp"
+            android:paddingStart="4dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="21dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+        android:paddingBottom="84dp"
+        app:layout_constraintTop_toBottomOf="@+id/appbar"
+        />
 
 
 

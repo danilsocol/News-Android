@@ -44,7 +44,7 @@ class NewsListFragment : Fragment(), NewsAdapter.Listener {
     override fun onClick(news: NewsModel) {
         val bundle = Bundle()
         bundle.apply {
-            putInt("id",news.viewType)
+            putInt("id",news.id)
         }
 
         findNavController().navigate(R.id.toItemCard,bundle)
