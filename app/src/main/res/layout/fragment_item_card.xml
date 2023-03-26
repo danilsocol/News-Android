@@ -7,14 +7,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ItemCardFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/news_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/news_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="title"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:menu="@menu/menu"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
     <ImageView
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/icon"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news_appbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+<!--     <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:adjustViewBounds="true"
+        android:src="@drawable/icon"
+        app:layout_constraintTop_toBottomOf="pa\"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />-->
 
     <Button
         android:id="@+id/btn_id"

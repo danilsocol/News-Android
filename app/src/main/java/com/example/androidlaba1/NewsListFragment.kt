@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidlaba1.databinding.FragmentNewsListBinding
 
@@ -13,6 +14,8 @@ class NewsListFragment : Fragment(), NewsAdapter.Listener {
 
     private var _binding: FragmentNewsListBinding? = null
     private val newsAdapter = NewsAdapter(this)
+    private val apiManager:DataManager = Mock()
+
 
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -28,23 +31,7 @@ class NewsListFragment : Fragment(), NewsAdapter.Listener {
 
     private fun init(){
 
-        val list  = listOf(
-            NewsModel(
-                0,R.drawable.avatar, "Header", "Title",
-                "Subhead", "description", "text", R.drawable.icon, R.drawable.icon_80dp),
-            NewsModel(
-                1,R.drawable.avatar, "Header", "Title",
-                "Subhead", "description", "text", R.drawable.icon, R.drawable.icon_80dp),
-            NewsModel(
-                0,R.drawable.avatar, "Header", "Title",
-                "Subhead", "description", "text", R.drawable.icon, R.drawable.icon_80dp),
-            NewsModel(
-                0,R.drawable.avatar, "Header", "Title",
-                "Subhead", "description", "text", R.drawable.icon, R.drawable.icon_80dp),
-            NewsModel(
-                1,R.drawable.avatar, "Header", "Title",
-                "Subhead", "description", "text", R.drawable.icon, R.drawable.icon_80dp)
-        )
+        val list = apiManager.getAllNews()
         newsAdapter.submitList(list)
 
         binding.apply {
@@ -55,6 +42,16 @@ class NewsListFragment : Fragment(), NewsAdapter.Listener {
     }
 
     override fun onClick(news: NewsModel) {
+        val bundle = Bundle()
+        bundle.apply {
+            putInt("id",news.viewType)
+        }
 
+        findNavController().navigate(R.id.toItemCard,bundle)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

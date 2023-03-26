@@ -1,6 +1,7 @@
 package com.example.androidlaba1
 
 data class NewsModel (
+    val id : Int,
     val viewType :Int,
     val userAvatarId : Int,
     val header: String,
