@@ -33,7 +33,6 @@ class ItemCardFragment : Fragment() {
         binding.img.setImageResource(news!!.iconId)
         binding.newsToolbar.title = news.title
 
-
         binding.newsToolbar.setNavigationOnClickListener{
             findNavController().popBackStack()
         }
